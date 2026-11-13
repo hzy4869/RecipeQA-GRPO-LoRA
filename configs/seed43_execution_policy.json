@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "status": "fixed_before_seed43_execution",
+  "decision_stage": "after_completed_seed42_E0_E4_and_before_any_seed43_training",
+  "parent_protocol_sha256": "9089f48c5f3b571dfa5fddd31b843a0ae2c22296d9ca4a4d03ee05ab7a75f18c",
+  "decision_disclosure": {
+    "optional_planned_experiment": "S2 second optimization/rollout seed for Exact and Pair",
+    "seed42_test_results_known_when_execution_chosen": true,
+    "initial_seed42_pair_minus_exact_exact_accuracy_percentage_points": 2.5,
+    "reason": "Assess stability of a small first-seed difference while the authorized compute budget permits both complete branches.",
+    "seed43_results_used_to_choose_this_policy": false,
+    "hyperparameter_tuning": false,
+    "seed42_checkpoints_reselected": false,
+    "both_reward_methods_required_and_all_results_disclosed": true
+  },
+  "model_training_seed": 43,
+  "fixed_data_order_seed": 42,
+  "training_manifest": "data/manifests/train_visits.jsonl",
+  "training_manifest_sha256": "e502e427cdfb0306e9ee8e581ad86ae159f0a7d96de1049716d81bb961622e20",
+  "training_stream_rows": 2048,
+  "unique_training_questions": 1024,
+  "data_policy": "Reuse the exact original two-pass visit_id/presentation/order stream; do not generate a seed43 data stream. Trainer data_seed=43 is inherited from model seed but sequential sampling and shuffle_dataset=false must preserve the stored order; actual group order is checked after each run.",
+  "methods": [
+    "exact",
+    "pair"
+  ],
+  "run_names": [
+    "exact_seed43",
+    "pair_seed43"
+  ],
+  "training": {
+    "max_steps": 1024,
+    "save_steps": 256,
+    "learning_rate": 5e-06,
+    "gradient_accumulation_steps": 8,
+    "generation_batch_size": 8,
+    "num_generations": 4,
+    "all_other_conditions": "Frozen original train_grpo.py and seed42 signature payload; only scientific_cli.seed changes from42 to43 within each reward method.",
+    "initial_adapter": "same original W, fresh optimizer and scheduler per branch"
+  },
+  "development": {
+    "manifest": "data/manifests/val.jsonl",
+    "questions": 200,
+    "recipes": 200,
+    "checkpoint_steps": [
+      256,
+      512,
+      768,
+      1024
+    ],
+    "selection_rule": "recipe-macro Exact, then Pair, then earlier; fixed val200",
+    "test_used_for_seed43_checkpoint_selection": false
+  },
+  "evaluation": {
+    "model_decoding_seed": 43,
+    "greedy_max_new_tokens": 32,
+    "E0": {
+      "manifest": "data/manifests/test.jsonl",
+      "questions": 905,
+      "recipes": 597
+    },
+    "E3": {
+      "manifest": "data/manifests/orbit.jsonl",
+      "questions": 60,
+      "recipes": 60,
+      "rows": 1440,
+      "require_all_24_presentations": true
+    },
+    "determinism": {
+      "manifest": "data/controls/greedy_determinism10.jsonl",
+      "source": "first10 of original fixed monitor manifest, same as seed42",
+      "questions": 10,
+      "independent_files_per_model": 2,
+      "must_pass_before_E3": true
+    },
+    "E4_added": false,
+    "SFT_retrained": false,
+    "bootstrap_samples": 2000,
+    "bootstrap_seed": 20261107
+  },
+  "reporting": {
+    "summaries_separate_by_training_seed": true,
+    "pool_seed42_seed43_recipes_into_larger_independent_N": false,
+    "report_selected_actual_exposure_and_full_paid_training_plus_all_dev_cost": true,
+    "no_best_seed_selection": true,
+    "SFT_comparison_training_seed_uncertainty_remains": true,
+    "human_review_work_added": false,
+    "seed_scope": "Fixed data/splits/display visits; repeat only optimization and on-policy rollout randomness. Two seeds provide a sensitivity check, not a precise training-seed confidence interval."
+  },
+  "execution": {
+    "all_paths_on_data_disk": true,
+    "four_cpu_thread_variables": 4,
+    "require_original_core_automated_complete_human_pending": true,
+    "require_GPU_idle_before_GPU_commands": true,
+    "automatic_training_restart": false,
+    "automatic_pipeline_resume": false,
+    "failure_policy": "Stop and preserve state/PID/log/command receipts. An operator must inspect any failure; do not relaunch this whole pipeline against nonempty run directories."
+  },
+  "unchanged_additional_source_sha256": {
+    "ops/evaluation_pipeline.py": "4c7cd3fb0c76ba68776eec1b6768ca51ab78f95ab3a128157888f38bfa6b9586",
+    "ops/compare_greedy.py": "4dfb6f907327cced4293bb049be602a2c40cb274bdd179d59a87a1c17ebfda1e",
+    "ops/wait_and_evaluate.py": "26c7b4574cb9f970e12dbd5aaa94cc9a587a001abebdc4df8b95bd92b11b0bdb",
+    "scripts/build_review_views.py": "a13e2d70da7f6e7cf08dc022b521830b41c1f0c66f7ab6d7f973e4cfbf78bf72",
+    "scripts/plot_training_dynamics.py": "c427d8e2259f8ad35828d5e8061fac7ba6822e2be23c052b01be31c3e67e0a0a"
+  }
+}

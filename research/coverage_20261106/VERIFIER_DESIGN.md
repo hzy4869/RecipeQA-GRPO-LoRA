@@ -1,0 +1,22 @@
+# Independent coverage verifier — implementation contract
+
+CPU-only preparation; no remote connection, GPU, model call, frozen-policy edit or execution authorization. `verify_coverage_run.py` is owned independently from the new trainer. All old source files remain immutable.
+
+The new verifier will retain the old independent verifier's numerical derivation and physical safetensor fingerprint / Torch ZIP CRC checks. It will import that verifier's CPU helpers, never the trainer, and explicitly derive a new entry point accepting `--policy`, `--run-dir`, `--output`. It will not bypass old checks by relabeling a1024 run as256.
+
+Required changes from the old generic verifier are narrow and explicit:
+
+- Smoke:4 actual visits,1 update,checkpoint1. Formal:1024 actual visits,256 updates,checkpoints64/128/192/256. Only rawSFT and Exact-KL; same LR5e-6, beta0/1.6363096678310884, accumulation4, C5 includingEOS, clip1 and freshAdamW. Primary256, diagnostic64, no dev selection.
+- Bind the actual child policy SHA, complete reviewed old/new source closure, resolved CLI, signed run, manifest/reference/image/model bytes and common first-preflight/absolute deadline. Source paths must include the old independent verifier imported for math/CRC/fingerprint helpers.
+- Independently reconstruct original7558 file first1024 identities and exact fixed45 shuffle, and prove prior SFT768 exposure from actual6144 consumed visits. Preparation/input audits alone cannot prove prior exposure.
+- Independently audit fresh reference1024 and derived formal45/smoke4 caches. Reindexing may change only row`index` and`reference_spec_sha256`; specs only manifest/selected-record/pixel identities. All other records, scores, candidates, EOS, input audits and numerical checks must be identical. Verify source/target files, every lineage payload SHA and no duplicate/omitted identities. Reference literal full-logit check is attached to original source index0; current training literal check remains current visit index0.
+- Retain all per-visit objective/coefficient/gradient-forward/reward checks, per-step clipping/update/compute counts, complete checkpoint inventories, actual state CRC and adapter fingerprints. Ineffective training is a valid negative outcome when disclosed correctly; no score threshold is an audit criterion.
+- Reference creation is charged once, while shared caches charge zero new reference forwards per training arm. Actual source-reference work and reference-only no-update evidence need a separate audit path.
+
+Focused CPU tests will exercise the new budget/checkpoint/source-policy checks, full and subset lineage, original-index numerical-check schedule, tampered payload/spec/reward/EOS/lineage rejection and physical CRC/fingerprint failures. Tests use synthetic records and tiny tensors, do not skip absent real models, and do not claim real VLM/optimizer arithmetic validation.
+
+Implementation is now present and follows the finalized schema. It never imports or calls the producer's objective, reindex function or summary as its independent oracle. `--reference-only` audits the actual newly created1024 source, zero optimizer/updates and25600 charged forwards. Each smoke/formal audit also independently checks that source's signed creation and physical initial tensors, then the derived cache lineage and the15-file pre-update seal. The shared source cost remains outside each training arm's own counters.
+
+The finalized closure contains20 reviewed source/helper/test files, including the old independent verifier and the unchanged orbit/predict/coverage helpers. Prior SFT768 exposure is checked against its physical signature, full manifestSHA and6144 forward/backward-returned visits, eight per update. Generated cache receiptSHA, lineageSHA and actual referenceSHA are signed in the run; fixed child policies are not rewritten after scoring.
+
+Validation so far:13/13 focused independent-verifier tests pass locally (0.168s,zero skips), and all27 new contract/pipeline/verifier tests pass together (4.485s,zero skips). The additional3 real-Torch CPU tests remain mandatory in the remote full suite; local stdlib tests do not replace them or the four actual GPU smokes. Nothing has been remotely executed by this verifier author. Runtime VLM forwards/Adam arithmetic are not recomputed; actual safetensor bytes and Torch archives are fingerprinted/CRC-checked without unpickling. The frozen-vision claim relies on bound runtime guards plus unchanged initial base identity.

@@ -1,0 +1,13 @@
+# Independent v3 source and actual draft review
+
+**PASS for the minimal source repair and actual v3 draft. Final policy binding still requires its declared read-only check before launch.** No SSH, remote CPU, model/GPU call, cleanup or launch was performed by this reviewer.
+
+The preserved real v2 CPU report ran66 cases with64 passes,2 errors and0 skips. Both errors show the same nested TMPDIR prefix duplication in `Files.relative`; all three real Torch/autograd tests passed. CUDA-initialization measurement and the native cleanup probe were never reached and remain null. This failed preflight is preserved, with5 raw evidence files independently rehashed.
+
+After the declared research-namespace migration,8 of10 Python files are text/AST identical. The sole production logic change prioritizes `self.root` before REMOTE in absolute evidence-path normalization. The only test change is one nested/REMOTE-overlap regression plus its mock import. The entire trainer, reward/scoring/gradient/optimizer/scheduler and complete queue remain unchanged after namespace normalization. All10 external dependencies and all20 old frozen sources remain physically unchanged. Exploratory output base remains unchanged.
+
+Independent local execution passed **64 cases,0 failures/errors/skips,3.440s**, with all10 new source hashes stable and no Torch import. A separate read-only local fixture reproduced the old nested FileNotFound and verified the new actual file hash, ordinary relative paths, remote-to-export fallback and3 unsafe/forbidden path rejections. This is not a remote67-case/native pass.
+
+Actual draft SHA: `1151125d31c300b474e0522a4e314e56bcdb3c47275e79087f42b71c23a4a557`. All20 source bindings,60 artifact SHA/byte receipts and18 child policies were checked. Every scientific CLI field is identical to v2 except scoped stage output/reference-cache paths. Parent changes are only nonexecutable draft status, stage_v3 path, expected CPU count67, copied source bindings, child descriptors and evidence additions; all54 old artifact bindings are retained. All8 arms,10 technical branches and74 commands remain intact.
+
+Original first **2026-11-07 04:18:24.421606 UTC** and deadline **2026-11-08 00:18:24.421606 UTC** are exact and unchanged. Final materialization may only lock parent status, move18 child descriptors with actual hashes and append named review/candidate metadata identically to parent/children. It cannot edit any of60 retained artifact bindings, scientific field or clock. Actual67-case CPU/native,4 q0 audits,ten real effective-update smokes and the full-eight-arm remaining-time/storage gate remain mandatory.

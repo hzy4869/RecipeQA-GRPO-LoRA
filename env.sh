@@ -1,0 +1,21 @@
+export RECIPEQA_ROOT=/root/autodl-tmp/rl_recipeqa
+export TMPDIR="$RECIPEQA_ROOT/tmp"
+export TMP="$TMPDIR"
+export TEMP="$TMPDIR"
+export XDG_CACHE_HOME="$RECIPEQA_ROOT/cache"
+export PIP_CACHE_DIR="$RECIPEQA_ROOT/cache/pip"
+export HF_HOME="$RECIPEQA_ROOT/cache/huggingface"
+export HF_HUB_CACHE="$RECIPEQA_ROOT/models/hub"
+export HF_XET_CACHE="$RECIPEQA_ROOT/cache/xet"
+export HF_ASSETS_CACHE="$RECIPEQA_ROOT/cache/assets"
+export HF_DATASETS_CACHE="$RECIPEQA_ROOT/cache/datasets"
+export TORCH_HOME="$RECIPEQA_ROOT/cache/torch"
+export TRITON_CACHE_DIR="$RECIPEQA_ROOT/cache/triton"
+export CUDA_CACHE_PATH="$RECIPEQA_ROOT/cache/cuda"
+export PYTHONPYCACHEPREFIX="$RECIPEQA_ROOT/cache/pycache"
+export MPLCONFIGDIR="$RECIPEQA_ROOT/cache/matplotlib"
+export WANDB_DIR="$RECIPEQA_ROOT/runs/wandb"
+export WANDB_CACHE_DIR="$RECIPEQA_ROOT/cache/wandb"
+export TOKENIZERS_PARALLELISM=false
+
+export PATH="$RECIPEQA_ROOT/.venv/bin:$PATH"

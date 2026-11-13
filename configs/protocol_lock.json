@@ -1,0 +1,360 @@
+{
+  "status": "frozen",
+  "created_at": "2026-11-04T16:31:49.329306+00:00",
+  "source_commit": "5a07ce6b87a8ca57bcf0aab116fe1d572383e102",
+  "file_sha256": {
+    "ops/._fetch_recipeqa.py": "07409c8e80403bddecc4c5a935ce5285fda907bbca4139e6dd1d3642943b89e4",
+    "ops/complete_pilots.py": "f35fa1bcf5de1fb3ba9c481fc91376859a106a7c0d1c91f8166937d016294ce1",
+    "ops/fetch_model.py": "1166cb79b60ce23036836c15517cc02d1085ab10d86113f343dad0db88542c00",
+    "ops/fetch_recipeqa.py": "79d52b9db935ee715bd1eb90dd3b8fc608ea145f3a3fd8b59bed7b648bc155e7",
+    "ops/formal_training_pipeline.py": "538fa891fa280f3bd1fbdddbf899fd3c5d83707c8f5de6f68aa4354a39ef4152",
+    "ops/freeze_protocol.py": "9d963aeba36378c36406934dec2204e561cdfcbcd071b2e03e8c74e4256809a5",
+    "ops/preparation_pipeline.py": "bd8e3a4617059c7851bfdf8a60da58f85e7ca0c9030e99604164e21c81be2e38",
+    "ops/warmup_pipeline.py": "e7e188fb092eaf9ebc35f7fcdd0b972742324b65568f908f38167bca4697bbea",
+    "scripts/._predict.py": "07409c8e80403bddecc4c5a935ce5285fda907bbca4139e6dd1d3642943b89e4",
+    "scripts/._prepare_data.py": "07409c8e80403bddecc4c5a935ce5285fda907bbca4139e6dd1d3642943b89e4",
+    "scripts/._summarize_predictions.py": "07409c8e80403bddecc4c5a935ce5285fda907bbca4139e6dd1d3642943b89e4",
+    "scripts/._train_grpo.py": "07409c8e80403bddecc4c5a935ce5285fda907bbca4139e6dd1d3642943b89e4",
+    "scripts/._train_sft.py": "07409c8e80403bddecc4c5a935ce5285fda907bbca4139e6dd1d3642943b89e4",
+    "scripts/build_audit_packet.py": "66ecb9303fa0ba4ae88525445054e1825f4f95f922155703ee70da74458c6f08",
+    "scripts/compare_resume.py": "d58ed34297e832b97330e5b662b578051bb98aa351a31765371c973ddd6ba168",
+    "scripts/make_figures.py": "db266c53eacc2aad9857ae5d690fdea144ab3f7d7ffe18db6e8a59989e9dc659",
+    "scripts/predict.py": "27b199f8625cab1dfe36830dc1666864ff331166971a3a941467a59bd0615493",
+    "scripts/prepare_data.py": "91f4eab463620ae1c0470e5e9ccda75ffb3ac38e3acecee371d9c98a25872e17",
+    "scripts/prepare_sanity_controls.py": "f3c22be965213940917b5907419a3aa93c6d4ebcc23753da78c835069d0cfc41",
+    "scripts/summarize_pilot.py": "8469692ef3de2fad206a132bb760f782e7e2775efc13d151407fc90eb44453ef",
+    "scripts/summarize_predictions.py": "bd1007af7cc2ff880f5757ce8443ba9a9ad36e7f1f6e8bbb92f31be0d501319a",
+    "scripts/summarize_process.py": "089120f84e3a21cc173b43fce7e35329bcd2a6e7a4c5be74ac244acfd7df0119",
+    "scripts/train_grpo.py": "b22605e18088db2ed8d5094c30ef5d45d3dff30b81581de51dc9e7538d16796e",
+    "scripts/train_sft.py": "730a4e2a77bd2442ab2b8a739283ba5a924107cbd66f63e96135e01275a116a4",
+    "scripts/validate_run.py": "10eb19647b565a88495c53af845ea1cbc6d13eec81f03f59328a40602bdd8ca8",
+    "src/recipeqa/.___init__.py": "07409c8e80403bddecc4c5a935ce5285fda907bbca4139e6dd1d3642943b89e4",
+    "src/recipeqa/._data.py": "07409c8e80403bddecc4c5a935ce5285fda907bbca4139e6dd1d3642943b89e4",
+    "src/recipeqa/._metrics.py": "07409c8e80403bddecc4c5a935ce5285fda907bbca4139e6dd1d3642943b89e4",
+    "src/recipeqa/._modeling.py": "07409c8e80403bddecc4c5a935ce5285fda907bbca4139e6dd1d3642943b89e4",
+    "src/recipeqa/__init__.py": "9fbd2ded9e499c13b4ebe51b09f060c410e35a26d18b4d6635ef761913402e6e",
+    "src/recipeqa/data.py": "7df1c7a162d10f952e76c47a06f161a8af79e96dc2a1aca881bcb4caa2e34418",
+    "src/recipeqa/metrics.py": "5287d44a3bb4ede3a44ce0a6625aee399260afecd42c984441a8e07492a2423a",
+    "src/recipeqa/modeling.py": "5fedb7a60877e965861aa9174179880754cb0555c4167265fdd8c3781af39771",
+    "src/recipeqa/process_metrics.py": "ebc9e551dd489c6c14d979755029ea79dcf5d88238f5c20076742dda73ea4b0b",
+    "data/manifests/train.jsonl": "d2da936d697212dce5e1fef2fde13597eee504d356049d421dbb8f06579e0f7f",
+    "data/manifests/train_visits.jsonl": "e502e427cdfb0306e9ee8e581ad86ae159f0a7d96de1049716d81bb961622e20",
+    "data/manifests/train_visits_4pass.jsonl": "cd1e37a7889f93930c512fb8258ad808d451df5d58dafeae9a34b56fa6bd658c",
+    "data/manifests/val.jsonl": "c998796fbc07a24c7a24062d6d0aba07500c75b34568fd7ba67f8c38daae03c9",
+    "data/manifests/test.jsonl": "b4ff401116536000eddd35977de89236220b1cdc43d5755aedecfdbe482306e7",
+    "data/manifests/audit.jsonl": "0c0f8268bd78b3a756a4a7543b1b09686ef730c724f4d7aed00262f68b77a885",
+    "data/manifests/orbit.jsonl": "510eba72e9736f0b6c3d29aab48248e77fb0b0eef639afa49f4239b78091833b",
+    "data/manifests/process.jsonl": "2a054026554d7ad52d7a5bcca1e48f03a3bc45a25fb0745d8c7101d4f39ede61",
+    "data/manifests/bank.jsonl": "53b6fa28c7b73ae2f0601f5eae39ed6a2ac14e659b0cc5bf9cdbdd1c5b6f2320",
+    "data/manifests/manifest_report.json": "3549345351cc4c475eee8e3e35505f0e0f616ea33ba8a0d5644291d3dac0f293",
+    "data/manifests/image_report.json": "0d9902912a82da975040c35771cbb8d2a81eca393c81e0a884086999938595bf",
+    "data/manifests/sft4pass_prefix_audit.json": "28f49e744d66d6b926baf8a27563c9c1d0241692f4526925595dd2eaa1f9c524",
+    "configs/candidate_protocol.json": "86d7d414f070927b5adcafd735d1f6ed79e738d236b423ed957fcaeaf3f24d44",
+    "RESEARCH_PLAN.md": "b1a2a4d58e1a07382c8975294cb3099e638d061d6b128848b4e467666f8c9f4d"
+  },
+  "W": {
+    "directory": "/root/autodl-tmp/rl_recipeqa/runs/warmup_v1/checkpoint-16",
+    "weight_files": [
+      {
+        "name": "adapter_model.safetensors",
+        "bytes": 69788264,
+        "sha256": "5b8768ecc20cfc031ccf21ed8509e66c91170d384c9f747142dec53dcb1ab31a"
+      }
+    ],
+    "weights_sha256": "caca5efad062a1c20f61926bd256ab5741c41eed899c3e0326868209377c134a",
+    "auxiliary_files": [
+      {
+        "name": "adapter_config.json",
+        "sha256": "c060590fab68427c8f72f5bace7f3d97b53a60ff5ac0394a2a26c310e64ce24e"
+      },
+      {
+        "name": "tokenizer.json",
+        "sha256": "8579e1ca7cc5d82a9e0202eed555529996f4ffe7f563c2979a0290cf3db452d3"
+      },
+      {
+        "name": "tokenizer_config.json",
+        "sha256": "0d840715572d5d7778bed4638394cd4e3a7cd879ed857c6a5073b055a56e7f64"
+      },
+      {
+        "name": "chat_template.jinja",
+        "sha256": "3636d0f0bd6bef02654cdffdc447b79cb2cef8ab02cc75267345946291a489e4"
+      },
+      {
+        "name": "processor_config.json",
+        "sha256": "abb488b9a03a53407dc9c8e43c0a2caec9142e5fc7a1203807fdf54b2149cc8f"
+      }
+    ],
+    "bundle_sha256": "ad4b57d1bdaba5b82177e16d24a24f9711e9054369b51ced5007f5b0623aa6c6"
+  },
+  "base": {
+    "directory": "/root/autodl-tmp/rl_recipeqa/models/Qwen3-VL-2B-Instruct",
+    "weight_files": [
+      {
+        "name": "model.safetensors",
+        "bytes": 4255140312,
+        "sha256": "7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0"
+      }
+    ],
+    "weights_sha256": "9065553414524564e1bac30c005dff621ba946fbcbe70ed43b938d4be4bcc0a0",
+    "auxiliary_files": [
+      {
+        "name": "config.json",
+        "sha256": "bec4b3d446efa05807365c9e1cec03ac590836879d02f3a6da879971154bdd3b"
+      },
+      {
+        "name": "generation_config.json",
+        "sha256": "1e241830b48b397cb0900101421df5450baddc7adf01e5fc86b5615865f3bae4"
+      },
+      {
+        "name": "tokenizer.json",
+        "sha256": "a5d85b6dcc535e6b93115a9ef287e6132fdbf30270da6218194ba742261173c7"
+      },
+      {
+        "name": "tokenizer_config.json",
+        "sha256": "c2da771801886ad9ae98181793ffd3dfb7f1af30f6f7c6a4e15d7dbba52e2399"
+      },
+      {
+        "name": "vocab.json",
+        "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+      },
+      {
+        "name": "merges.txt",
+        "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3"
+      },
+      {
+        "name": "chat_template.json",
+        "sha256": "6f8a6a55027e3da5160105556cda5dd69f6423f1c32645f6730d32de7773d0c4"
+      },
+      {
+        "name": "preprocessor_config.json",
+        "sha256": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516"
+      }
+    ],
+    "bundle_sha256": "e0923b347bc16b4744f4e5bb7d3fb4bada6b9260505b4c09de35defc85e4c4a7"
+  },
+  "versions": {
+    "python": "3.12.3",
+    "torch": "2.8.0+cu128",
+    "torchvision": "0.23.0+cu128",
+    "transformers": "5.22.1",
+    "trl": "1.17.1",
+    "peft": "0.21.2",
+    "accelerate": "1.15.0",
+    "datasets": "5.1.0",
+    "huggingface_hub": "2.4.0",
+    "Pillow": "11.3.0",
+    "numpy": "2.3.2",
+    "tokenizers": "0.23.3",
+    "safetensors": "0.8.0",
+    "pyarrow": "26.0.1"
+  },
+  "candidate": {
+    "status": "gpu_pilots_verified_ready_to_freeze",
+    "model": "Qwen/Qwen3-VL-2B-Instruct",
+    "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+    "common_W": {
+      "status": "selected_on_fixed_val200_before_test",
+      "adapter": "/root/autodl-tmp/rl_recipeqa/runs/warmup_v1/checkpoint-16",
+      "adapter_file_sha256": "5b8768ecc20cfc031ccf21ed8509e66c91170d384c9f747142dec53dcb1ab31a",
+      "development_valid": 0.995,
+      "development_exact": 0.425,
+      "selection_policy": "earliest of steps16/32/48/64 with valid>=98%; common optimizer reset for each branch"
+    },
+    "input": {
+      "min_pixels": 65536,
+      "max_pixels": 262144,
+      "recipe_token_budget": 1536,
+      "max_input_tokens": 4096,
+      "main_max_new_tokens": 32,
+      "process_max_new_tokens": 256
+    },
+    "lora": {
+      "r": 16,
+      "alpha": 32,
+      "dropout": 0.0,
+      "bias": "none",
+      "modules": "language_model.layers.* only: self_attn q/k/v/o_proj; mlp gate/up/down_proj",
+      "vision_frozen": true
+    },
+    "shared": {
+      "seed": 42,
+      "train_manifest": "train_visits.jsonl",
+      "manifest_rows": 2048,
+      "manifest_passes": 1,
+      "shuffle_dataset": false,
+      "train_sampling_strategy": "sequential",
+      "microbatch": 1,
+      "gradient_accumulation_steps": 8,
+      "bf16": true,
+      "attention": "sdpa",
+      "gradient_checkpointing": true,
+      "gradient_checkpointing_use_reentrant": false,
+      "weight_decay": 0.0,
+      "warmup_ratio": 0.03,
+      "scheduler": "constant_with_warmup",
+      "max_grad_norm": 1.0
+    },
+    "sft": {
+      "learning_rate": 5e-05,
+      "completion_only_loss": true,
+      "max_length": null,
+      "packing": false,
+      "optimizer_steps_if_full_stream": 256,
+      "checkpoint_every_steps": 64
+    },
+    "sft_sufficiency_policy": {
+      "decision_date": "2026-11-05",
+      "decision_stage": "before_formal_training_and_formal_test",
+      "reason": "Use a separate four-pass budget control without changing immutable resume signatures or adding a new recovery path.",
+      "trigger": {
+        "selection_set": "fixed_200_recipe_development_set",
+        "two_pass_selected_checkpoint_step": 256,
+        "metric": "recipe_macro_exact",
+        "difference": "dev_exact_step256_minus_step192",
+        "minimum_difference": 0.02,
+        "test_results_used": false
+      },
+      "extension": {
+        "type": "independent_four_pass_sft_budget_control",
+        "initial_weights": "same_common_W_as_primary_branches",
+        "start_from_two_pass_final_adapter": false,
+        "continue_original_optimizer": false,
+        "optimizer_and_scheduler_initialized_from_scratch": true,
+        "manifest": "train_visits_4pass.jsonl",
+        "manifest_rows": 4096,
+        "passes_over_visit_stream": 1,
+        "verify_first_2048_rows_equal_primary_two_pass_stream": true,
+        "max_steps": 512,
+        "save_steps": 128,
+        "save_total_limit": 4,
+        "selection_checkpoint_steps": [
+          128,
+          256,
+          384,
+          512
+        ],
+        "selection_rule": "same_dev_recipe_macro_exact_then_pair_then_earlier_checkpoint",
+        "other_training_conditions": "inherit_primary_sft",
+        "warmup_fraction": 0.03,
+        "two_pass_absolute_warmup_steps": 8,
+        "four_pass_absolute_warmup_steps": 16
+      },
+      "reporting": {
+        "primary_two_pass_results": "preserved",
+        "supplemental_experiments": [
+          "E0",
+          "development_selection",
+          "actual_cost"
+        ],
+        "E3_E4_models": "three_selected_primary_two_pass_branch_endpoints",
+        "equal_exposure_or_compute_claim": false,
+        "pure_duration_single_factor_claim": false,
+        "if_extension_weakens_RL_advantage": "narrow_conclusions_and_report_the_counterevidence",
+        "if_no_improvement": "do_not_claim_proven_SFT_convergence",
+        "if_triggered_but_not_completed": "report_baseline_budget_limitation"
+      }
+    },
+    "grpo": {
+      "reward_variants": [
+        "exact",
+        "pair"
+      ],
+      "learning_rate": 5e-06,
+      "beta": 0.0,
+      "loss_type": "grpo",
+      "scale_rewards": "group",
+      "epsilon": 0.2,
+      "epsilon_high": 0.2,
+      "num_iterations": 1,
+      "generation_batch_size": 8,
+      "num_generations": 4,
+      "independent_prompt_groups_per_update": 2,
+      "max_completion_length": 32,
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "top_k": 0,
+      "use_vllm": false,
+      "mask_truncated_completions": false,
+      "zero_variance_resampling": false,
+      "optimizer_steps_if_full_stream": 1024,
+      "checkpoint_every_steps": 256
+    },
+    "notes": [
+      "All commands require explicit data-disk paths; no model download occurs inside training scripts.",
+      "Resolved per-run configuration, version inventory and actual sampler checks supersede this candidate file.",
+      "Initial W adapter and an interrupted branch checkpoint are distinct CLI arguments.",
+      "The GPU currently reports 32760 MiB; this differs from the original 48/80GB plan and requires pilot budget verification."
+    ]
+  },
+  "sft_sufficiency_policy": {
+    "decision_date": "2026-11-05",
+    "decision_stage": "before_formal_training_and_formal_test",
+    "reason": "Use a separate four-pass budget control without changing immutable resume signatures or adding a new recovery path.",
+    "trigger": {
+      "selection_set": "fixed_200_recipe_development_set",
+      "two_pass_selected_checkpoint_step": 256,
+      "metric": "recipe_macro_exact",
+      "difference": "dev_exact_step256_minus_step192",
+      "minimum_difference": 0.02,
+      "test_results_used": false
+    },
+    "extension": {
+      "type": "independent_four_pass_sft_budget_control",
+      "initial_weights": "same_common_W_as_primary_branches",
+      "start_from_two_pass_final_adapter": false,
+      "continue_original_optimizer": false,
+      "optimizer_and_scheduler_initialized_from_scratch": true,
+      "manifest": "train_visits_4pass.jsonl",
+      "manifest_rows": 4096,
+      "passes_over_visit_stream": 1,
+      "verify_first_2048_rows_equal_primary_two_pass_stream": true,
+      "max_steps": 512,
+      "save_steps": 128,
+      "save_total_limit": 4,
+      "selection_checkpoint_steps": [
+        128,
+        256,
+        384,
+        512
+      ],
+      "selection_rule": "same_dev_recipe_macro_exact_then_pair_then_earlier_checkpoint",
+      "other_training_conditions": "inherit_primary_sft",
+      "warmup_fraction": 0.03,
+      "two_pass_absolute_warmup_steps": 8,
+      "four_pass_absolute_warmup_steps": 16
+    },
+    "reporting": {
+      "primary_two_pass_results": "preserved",
+      "supplemental_experiments": [
+        "E0",
+        "development_selection",
+        "actual_cost"
+      ],
+      "E3_E4_models": "three_selected_primary_two_pass_branch_endpoints",
+      "equal_exposure_or_compute_claim": false,
+      "pure_duration_single_factor_claim": false,
+      "if_extension_weakens_RL_advantage": "narrow_conclusions_and_report_the_counterevidence",
+      "if_no_improvement": "do_not_claim_proven_SFT_convergence",
+      "if_triggered_but_not_completed": "report_baseline_budget_limitation"
+    }
+  },
+  "pilot_summary": "results/same_w_pilot_summary.json",
+  "blank_control": {
+    "n": 20,
+    "exact": 0.05
+  },
+  "rental": {
+    "currency": "CNY",
+    "total_budget": 1000,
+    "current_hourly_rate_approx": 1.6,
+    "planned_rental_days": 14,
+    "planned_rental_cost_approx": 537.6,
+    "other_budget_approx": 462.4,
+    "accounting": "Platform billed instance wall hours, including download/CPU/idle; GPU active seconds recorded separately. Exact platform accrued balance/start time not available to this process.",
+    "upgrades": "Propose only using measured memory/throughput and total cost comparison; no new rental authorized here.",
+    "recorded_at": "2026-11-04T15:40:01.960360+00:00"
+  },
+  "human_input_audit": "pending: team temporarily unavailable; fixed samples retained, no semantic filtering",
+  "resume_limitation": "State, positions, RNG and LR checked; cross-process BF16 numeric trajectories not bitwise equivalent",
+  "formal_test_model_predictions_used_for_selection": false
+}

@@ -1,0 +1,9 @@
+# Version 3: evidence-path normalization only
+
+This is a technical continuation of the same original reference-refresh batch. Its first-preflight clock remains UTC2026-11-07T04:18:24.421606 and its absolute deadline UTC2026-11-08T00:18:24.421606 (20 hours including all prior failed preflights). This sibling namespace does not authorize a new clock or cap.
+
+V1 stopped at its initial disk gate, before scheduled CPU tests or model calls. Pip download cache alone was purged, preserving installed environments, data, models and all scientific outputs. V2 passed the disk gate, then ran66 CPU tests with64 passes,2 path errors and0 skips; the three actual Torch/autograd tests passed. The failed suite never reached the CUDA-initialization measurement/native cleanup probe. No model/GPU update has occurred.
+
+The independent verifier mapped an absolute path beneath both REMOTE and its nested temporary evidence root relative to REMOTE first, then joined the nested root again. Version3 prioritizes its actual evidence root, retaining remote-to-local mirror mapping and traversal/confirmation restrictions. One targeted overlapping-root regression is added. Ten Python files are copied into this new sibling so old frozen files remain immutable; research self-namespace strings change accordingly. Training mathematics, model/data identity, eight arms, ten smokes,74 commands, all hyperparameters and the original scientific PLAN/ANALYSIS_PLAN remain unchanged. The new complete remote CPU count is67, never inferred from64 local stdlib passes.
+
+Only after independent source/policy binding review may a fresh stage_v3 output run under the existing clock. Complete67-zero-skip CPU/native, four physical q0 audits, all ten effective-update smokes and whole-eight-arm time/storage gates must pass before formal training. Preserve all v1/v2 errors and negative results. No new confirmation/test access, checkpoint selection, arm dropping, reward change or clock reset.

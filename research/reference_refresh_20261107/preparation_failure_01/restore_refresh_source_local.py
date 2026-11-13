@@ -1,0 +1,31 @@
+from pathlib import Path
+p=Path('research/reference_refresh_20261107/refresh_train.py');s=p.read_text()
+assert 'def logical_content' not in s and 'def score_current_unique' not in s
+idx=s.index('def arguments():');s=s[:idx]+Path('/tmp/refresh_helpers_fragment.py').read_text()+s[idx:]
+idx=s.index('        update(status="training", run_signature_sha256=signature, reference_policy_sha256=reference_hash)');s=s[:idx]+Path('/tmp/refresh_nested_fragment.py').read_text()+s[idx:]
+s=s.replace('"mode": "eval with LoRA autograd; no KV cache; all sequence objectives divided by canonical token count",','"execution_mode": "eval with LoRA autograd; no KV cache; all sequence objectives divided by canonical token count",')
+s=s.replace('        def score_current_unique(directory, step, role):\n            require', '        def score_current_unique(directory, step, role):\n            operation_tick = time.monotonic(); operation_started = now()\n            require')
+s=s.replace('            completion = {"status": "complete_current_checkpoint_reference"', '            operation_elapsed = time.monotonic() - operation_tick\n            completion = {"status": "complete_current_checkpoint_reference"')
+s=s.replace('"started_utc": stage_started, "finished_utc": now(), "wall_seconds": time.monotonic() - tick}', '"started_utc": operation_started, "finished_utc": now(), "wall_seconds": operation_elapsed, "elapsed_seconds": operation_elapsed}')
+s=s.replace('"started_utc": completion["started_utc"], "finished_utc": completion["finished_utc"], "wall_seconds": completion["wall_seconds"]}', '"started_utc": completion["started_utc"], "finished_utc": completion["finished_utc"], "wall_seconds": completion["wall_seconds"], "elapsed_seconds": completion["elapsed_seconds"]}')
+s=s.replace('            entry = {"global_step_before_update": step,', '            actual_optimizer_state = optimizer.state_dict()\n            optimizer_step_values = [int(actual_optimizer_state["state"][key]["step"].item()) for key in sorted(actual_optimizer_state["state"])]\n            require(len(optimizer_step_values) == 392 and set(optimizer_step_values) == {step + 1}\n                    and scheduler.last_epoch == step + 1, "Actual Adam/scheduler update counter skipped or reset")\n            entry = {"optimizer_step_values": optimizer_step_values, "scheduler_last_epoch": scheduler.last_epoch, "global_step_before_update": step,')
+s=s.replace('        refresh_event = None\n        torch.cuda.reset_peak_memory_stats()', '        refresh_event = None\n        refreshed_artifact_hashes = {}\n        frozen_run_inputs = {str(ROOT / _LOCKED_POLICY["authorization_path"]): signature_payload["authorization_sha256"],\n                             str(ROOT / _LOCKED_POLICY["q0_reference_lineage"]): signature_payload["reference_lineage_sha256"],\n                             str(ROOT / _LOCKED_POLICY["generated_reference_receipt"]): signature_payload["generated_reference_receipt_sha256"],\n                             str(reference_config_path): sha256_file(reference_config_path),\n                             str(reference_completion_path): sha256_file(reference_completion_path)}\n        torch.cuda.reset_peak_memory_stats()')
+s=s.replace('                    and sha256_file(reference_path) == reference_hash, "Bound scientific source/data/reference changed during training")', '                    and sha256_file(reference_path) == reference_hash, "Bound scientific source/data/reference changed during training")\n            for path, digest in {**frozen_run_inputs, **refreshed_artifact_hashes}.items():\n                require(sha256_file(path) == digest, "Sealed auth/q0/real refreshed reference changed during training")')
+s=s.replace('            write_json(directory / "refresh_event.json", event)\n            return event, rows', '            write_json(directory / "refresh_event.json", event)\n            for path in (cache, Path(str(cache) + ".config.json"), Path(str(cache) + ".completion.json"), directory / "refresh_event.json"):\n                refreshed_artifact_hashes[str(path)] = sha256_file(path)\n            return event, rows')
+s=s.replace('            rows = []; forwards = 0; tick = time.monotonic(); stage_started = now()', '            rows = []; forwards = 0')
+s=s.replace('            and cpu["cuda_initialized"] is False, "Nonvacuous zero-skip CPU gate required")', '            and cpu["cuda_initialized"] is False and cpu["policy_sha256"] == auth["stage_policy_sha256"]\n            and cpu["sources_sha256"] == child["sources_sha256"]\n            and cpu["first_preflight_started_utc"] == child["first_preflight_started_utc"]\n            and cpu["absolute_deadline_utc"] == child["absolute_deadline_utc"]\n            and cpu["native_watchdog_probe"]["passed"] is True, "Nonvacuous actual-policy CPU/native gate required")')
+s=s.replace('    for item in auth["q0_receipts"].values(): receipt(item)', '''    for name, item in auth["q0_receipts"].items():
+        proof = receipt(item); qmode, qflow = name.split("_", 1)
+        qkey = ("smoke_" if qmode == "smoke" else "") + qflow + "_raw_sft"
+        require(proof["status"] == "complete_verified_reference_refresh_q0" and proof["new_q0_candidate_forwards"] == 0
+                and proof["mode"] == qmode and proof["flow"] == qflow and proof["arm"] == "raw_sft"
+                and proof["unique"] == (4 if qmode == "smoke" else 256)
+                and proof["locked_policy_sha256"] == parent["children"][qkey]["sha256"], "Wrong q0 receipt role/actual child")''')
+s=s.replace('        for item in auth["technical_receipts"].values(): receipt(item)', '''        for name, item in auth["technical_receipts"].items():
+            proof = receipt(item)
+            kind = "path_smoke" if name.startswith("path_smoke_") else "smoke"
+            suffix = name[len(kind) + 1:]; tflow, tarm = suffix.split("_", 1)
+            require(proof["status"] == "complete_verified_reference_refresh_run" and proof["mode"] == kind
+                    and proof["flow"] == tflow and proof["arm"] == tarm
+                    and proof["locked_policy_sha256"] == parent["children"][name]["sha256"], "Wrong technical receipt role/actual child")''')
+p.write_text(s)

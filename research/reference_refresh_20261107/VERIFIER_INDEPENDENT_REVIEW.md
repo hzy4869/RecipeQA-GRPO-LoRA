@@ -1,0 +1,15 @@
+# Independent verifier review
+
+PASS for local verifier mathematics and the current producer interface; ready to generate a draft. This is not a freeze, remote CPU, smoke, resource-admission, training or performance PASS. Source SHA/byte receipts are in the JSON.
+
+The independent verifier has31 standard-library tests; the complete namespace has63 local cases (15 contract,17 coordinator,31 verifier), all passing without errors/skips or Torch import. The future full remote CPU suite has66 cases including3 actual Torch tensor-reference tests. This Mac has neither Torch nor NumPy, so actual `.pt` snapshot loading is not claimed exercised locally.
+
+Covered interfaces are four q0-only identity/physical audits; complete training visits/gradients/counters; actual boundary1/64 reference generation and optimizer/scheduler/gradient/mode/RNG snapshots; final unique bank bound to the last checkpoint; all10 technical receipts and the complete time/storage formula; and a74-command stage guard. All technical updates must change saved LoRA weights and every technical step must have positive actual update norm. Formal ineffective runs remain complete negative results.
+
+The74th CPU guard shares the original watchdog and only opens results after73 successful scientific commands. Its one live exception requires actual self PID and PGID, with a persisted first73 completion receipt. Producer commits terminal completion only after that guard returns zero. Mutable stage journals are separately recorded and excluded from permanent input receipts so legitimate post-verifier completion does not invalidate prior proofs.
+
+Original coverage already used a constant LambdaLR. The new trainer preserves it and the independent verifier checks actual392 optimizer step tensors plus scheduler counter continuously. Seven core functions, including input preparation and exact coefficients, independently match the frozen coverage AST; the whole changed training loop is not represented as identical. The recovered local, unfrozen producer overwrite is preserved and independently rehashed.
+
+Statistics match ANALYSIS_PLAN: two equal-flow primary effects, a single stdlib Random(20261107) stream,5000 shared200-recipe bootstrap samples across all8 columns, per-flow results, percentage-point units and linear `(B−1)p` percentile interpolation. Nonconstant fixtures verify these rules. Both common-q0 beta objectives and analytic gap identities are separate from the refresh arm's changing online reference.
+
+Remaining gates are actual draft binding/freeze, single first-clock receipt, the actual66-case CPU/native gate, four q0 audits, ten effective technical smokes, measured full resource admission, and all8 formal endpoints plus the global guard under the original20h clock. No existing evidence establishes refresh utility. A free-distribution qstar gap does not establish convergence or non-convergence of shared LoRA parameters; qstar is gold-dependent and is not deployable or a capability upper bound. No SSH/GPU/network calls or confirmation/old-test question reads were made by this reviewer.

@@ -1,0 +1,27 @@
+# Environments, secrets, data and generated artifacts
+.venv/
+__pycache__/
+*.py[cod]
+._*
+.env
+.env.*
+/data/
+/models/
+/cache/
+/tmp/
+/runs/
+/results/
+/metadata/
+/exports/
+/review/
+*.tgz
+*.tar.gz
+*.zip
+*.pt
+*.pth
+*.safetensors
+*.log
+*.lock
+ops/fetch_recipeqa_events.jsonl
+ops/fetch_recipeqa_progress.json
+ops/recipeqa_extraction_report.json

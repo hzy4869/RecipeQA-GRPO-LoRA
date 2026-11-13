@@ -1,0 +1,126 @@
+{
+  "status": "gpu_pilots_verified_ready_to_freeze",
+  "model": "Qwen/Qwen3-VL-2B-Instruct",
+  "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+  "common_W": {
+    "status": "selected_on_fixed_val200_before_test",
+    "adapter": "/root/autodl-tmp/rl_recipeqa/runs/warmup_v1/checkpoint-16",
+    "adapter_file_sha256": "5b8768ecc20cfc031ccf21ed8509e66c91170d384c9f747142dec53dcb1ab31a",
+    "development_valid": 0.995,
+    "development_exact": 0.425,
+    "selection_policy": "earliest of steps16/32/48/64 with valid>=98%; common optimizer reset for each branch"
+  },
+  "input": {
+    "min_pixels": 65536,
+    "max_pixels": 262144,
+    "recipe_token_budget": 1536,
+    "max_input_tokens": 4096,
+    "main_max_new_tokens": 32,
+    "process_max_new_tokens": 256
+  },
+  "lora": {
+    "r": 16,
+    "alpha": 32,
+    "dropout": 0.0,
+    "bias": "none",
+    "modules": "language_model.layers.* only: self_attn q/k/v/o_proj; mlp gate/up/down_proj",
+    "vision_frozen": true
+  },
+  "shared": {
+    "seed": 42,
+    "train_manifest": "train_visits.jsonl",
+    "manifest_rows": 2048,
+    "manifest_passes": 1,
+    "shuffle_dataset": false,
+    "train_sampling_strategy": "sequential",
+    "microbatch": 1,
+    "gradient_accumulation_steps": 8,
+    "bf16": true,
+    "attention": "sdpa",
+    "gradient_checkpointing": true,
+    "gradient_checkpointing_use_reentrant": false,
+    "weight_decay": 0.0,
+    "warmup_ratio": 0.03,
+    "scheduler": "constant_with_warmup",
+    "max_grad_norm": 1.0
+  },
+  "sft": {
+    "learning_rate": 0.00005,
+    "completion_only_loss": true,
+    "max_length": null,
+    "packing": false,
+    "optimizer_steps_if_full_stream": 256,
+    "checkpoint_every_steps": 64
+  },
+  "sft_sufficiency_policy": {
+    "decision_date": "2026-11-05",
+    "decision_stage": "before_formal_training_and_formal_test",
+    "reason": "Use a separate four-pass budget control without changing immutable resume signatures or adding a new recovery path.",
+    "trigger": {
+      "selection_set": "fixed_200_recipe_development_set",
+      "two_pass_selected_checkpoint_step": 256,
+      "metric": "recipe_macro_exact",
+      "difference": "dev_exact_step256_minus_step192",
+      "minimum_difference": 0.02,
+      "test_results_used": false
+    },
+    "extension": {
+      "type": "independent_four_pass_sft_budget_control",
+      "initial_weights": "same_common_W_as_primary_branches",
+      "start_from_two_pass_final_adapter": false,
+      "continue_original_optimizer": false,
+      "optimizer_and_scheduler_initialized_from_scratch": true,
+      "manifest": "train_visits_4pass.jsonl",
+      "manifest_rows": 4096,
+      "passes_over_visit_stream": 1,
+      "verify_first_2048_rows_equal_primary_two_pass_stream": true,
+      "max_steps": 512,
+      "save_steps": 128,
+      "save_total_limit": 4,
+      "selection_checkpoint_steps": [128, 256, 384, 512],
+      "selection_rule": "same_dev_recipe_macro_exact_then_pair_then_earlier_checkpoint",
+      "other_training_conditions": "inherit_primary_sft",
+      "warmup_fraction": 0.03,
+      "two_pass_absolute_warmup_steps": 8,
+      "four_pass_absolute_warmup_steps": 16
+    },
+    "reporting": {
+      "primary_two_pass_results": "preserved",
+      "supplemental_experiments": ["E0", "development_selection", "actual_cost"],
+      "E3_E4_models": "three_selected_primary_two_pass_branch_endpoints",
+      "equal_exposure_or_compute_claim": false,
+      "pure_duration_single_factor_claim": false,
+      "if_extension_weakens_RL_advantage": "narrow_conclusions_and_report_the_counterevidence",
+      "if_no_improvement": "do_not_claim_proven_SFT_convergence",
+      "if_triggered_but_not_completed": "report_baseline_budget_limitation"
+    }
+  },
+  "grpo": {
+    "reward_variants": ["exact", "pair"],
+    "learning_rate": 0.000005,
+    "beta": 0.0,
+    "loss_type": "grpo",
+    "scale_rewards": "group",
+    "epsilon": 0.2,
+    "epsilon_high": 0.2,
+    "num_iterations": 1,
+    "generation_batch_size": 8,
+    "num_generations": 4,
+    "independent_prompt_groups_per_update": 2,
+    "max_completion_length": 32,
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "top_k": 0,
+    "use_vllm": false,
+    "mask_truncated_completions": false,
+    "zero_variance_resampling": false,
+    "optimizer_steps_if_full_stream": 1024,
+    "checkpoint_every_steps": 256
+  },
+  "notes": [
+    "All commands require explicit data-disk paths; no model download occurs inside training scripts.",
+    "Resolved per-run configuration, version inventory and actual sampler checks supersede this candidate file.",
+    "Initial W adapter and an interrupted branch checkpoint are distinct CLI arguments.",
+    "The GPU currently reports 32760 MiB; this differs from the original 48/80GB plan and requires pilot budget verification."
+  ]
+}
